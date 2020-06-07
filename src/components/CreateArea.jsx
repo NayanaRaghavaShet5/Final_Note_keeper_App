@@ -1,12 +1,23 @@
 import React from "react";
 
-function CreateArea() {
+function CreateArea(props) {
   return (
     <div>
       <form>
-        <input name="title" placeholder="Title" />
-        <textarea name="content" placeholder="Take a note..." rows="3" />
-        <button>Add</button>
+        <input
+          onChange={e => props.handleNote(e)}
+          name="title"
+          placeholder="Title"
+          value={props.titleValue}
+        />
+        <textarea
+          onChange={e => props.handleNote(e)}
+          name="content"
+          placeholder="Take a note..."
+          rows="5"
+          value={props.contentValue}
+        />
+        <button onClick={props.addNote}>Add</button>
       </form>
     </div>
   );
